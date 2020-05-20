@@ -161,12 +161,22 @@ app.layout = html.Div(
                                                                         dbc.Label(
                                                                             "Choose a probability of infection"
                                                                         ),
-                                                                        dbc.Input(
-                                                                            id="input_sir_prob_inf",
-                                                                            type="number",
-                                                                            placeholder="input probability of infection",
+                                                                        dcc.Slider(
+                                                                            min=0,
+                                                                            max=1,
+                                                                            step=0.01,
                                                                             value=0.2,
-                                                                            debounce=True,
+                                                                            marks={
+                                                                                i: "{}".format(
+                                                                                    i
+                                                                                )
+                                                                                for i in np.linspace(
+                                                                                    0,
+                                                                                    1,
+                                                                                    5,
+                                                                                )
+                                                                            },
+                                                                            id="input_sir_prob_inf",
                                                                         ),
                                                                         dbc.Label(
                                                                             "Choose the duration of infection"
@@ -182,12 +192,22 @@ app.layout = html.Div(
                                                                         dbc.Label(
                                                                             "Choose the test rate"
                                                                         ),
-                                                                        dbc.Input(
+                                                                        dcc.Slider(
+                                                                            min=0,
+                                                                            max=1,
+                                                                            step=0.01,
+                                                                            value=0.2,
+                                                                            marks={
+                                                                                i: "{}".format(
+                                                                                    i
+                                                                                )
+                                                                                for i in np.linspace(
+                                                                                    0,
+                                                                                    1,
+                                                                                    5,
+                                                                                )
+                                                                            },
                                                                             id="input_sir_tests",
-                                                                            type="number",
-                                                                            placeholder="input test rate",
-                                                                            value=0.1,
-                                                                            debounce=True,
                                                                         ),
                                                                         dbc.Label(
                                                                             "Choose number of periods"
