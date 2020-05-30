@@ -123,7 +123,11 @@ def ECDCfigure():
             align="left",
             font=dict(size=8,),
         )
-    fig.update_layout(legend_title_text="")
+    fig.update_layout(
+        legend_title_text="",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+    )
     fig.update_traces(textfont_size=7,)
     fig.update_xaxes(
         nticks=6, title_text="Log of cumulative confirmed cases",

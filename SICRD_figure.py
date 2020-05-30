@@ -7,16 +7,6 @@ import plotly.io as pio
 from plotly.subplots import make_subplots
 from scipy.integrate import odeint
 
-
-# gamma = 1.0 / 4.0  # time normal case till recovery
-# rho = 1 / 9.0  # time normal case till death
-# alpha = 0.02  # death rate normal case
-# epsilon = 0.05  # critical rate
-# zeta = 1.0 / 5.0  # time critical case till recovery
-# eta = 1.0 / 7.0  # time critical case till death
-# teta = 0.1  # death rate critical case
-
-
 colors = [
     "#636EFA",
     "#EF553B",
@@ -40,6 +30,14 @@ colors = [
     "#FF97FF",
     "#FECB52",
 ]
+
+# gamma = 1.0 / 4.0  # time normal case till recovery
+# rho = 1 / 9.0  # time normal case till death
+# alpha = 0.02  # death rate normal case
+# epsilon = 0.05  # critical rate
+# zeta = 1.0 / 5.0  # time critical case till recovery
+# eta = 1.0 / 7.0  # time critical case till death
+# teta = 0.1  # death rate critical case
 
 
 def deriv(
@@ -228,6 +226,8 @@ def SICRD_model(
     #     axes update
     fig.update_layout(
         title="Triage in the expanded SIR model",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
         #         xaxis_title="Days",
     )
     fig.update_xaxes(showgrid=False)

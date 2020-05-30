@@ -112,6 +112,8 @@ def expfigure(exp_min, exp_max, exp_incr, input_exp_per):
         )
     fig.update_layout(
         title="Exponential growth of infected population (cumulative sum)",
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
     )
     fig.update_xaxes(showgrid=False, zeroline=True)
     fig.update_yaxes(showgrid=False, zeroline=True)
