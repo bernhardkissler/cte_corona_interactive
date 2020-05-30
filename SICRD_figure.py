@@ -128,6 +128,7 @@ def SICRD_model(
             init_contact_rate,
             end_contact_rate,
             inflection_point,
+            #
             beds_per_thousand,
             scaling_factor,
             gamma,

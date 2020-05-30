@@ -332,6 +332,38 @@ app.layout = html.Div(
                                                                             },
                                                                             id="input_A6_prob_inf",
                                                                         ),
+                                                                        dbc.Label(
+                                                                            "Number of tests per 1000 inhabitants"
+                                                                        ),
+                                                                        dbc.Input(
+                                                                            id="input_A6_no_tests",
+                                                                            type="number",
+                                                                            placeholder="input number of tests",
+                                                                            value=100,
+                                                                            debounce=True,
+                                                                        ),
+                                                                        dbc.Label(
+                                                                            "Growth rate of available tests"
+                                                                        ),
+                                                                        dcc.Slider(
+                                                                            min=0,
+                                                                            max=0.1,
+                                                                            step=0.001,
+                                                                            value=0,
+                                                                            marks={
+                                                                                i: "{}".format(
+                                                                                    i.round(
+                                                                                        2
+                                                                                    )
+                                                                                )
+                                                                                for i in np.linspace(
+                                                                                    0,
+                                                                                    0.1,
+                                                                                    5,
+                                                                                )
+                                                                            },
+                                                                            id="input_A6_growth_tests",
+                                                                        ),
                                                                     ],
                                                                     width=3,
                                                                 ),
@@ -406,6 +438,38 @@ app.layout = html.Div(
                                                                             },
                                                                             id="input_A10_prob_inf",
                                                                         ),
+                                                                        dbc.Label(
+                                                                            "Number of ICUs per 1000 inhabitants"
+                                                                        ),
+                                                                        dbc.Input(
+                                                                            id="input_A10_no_beds",
+                                                                            type="number",
+                                                                            placeholder="input number of beds",
+                                                                            value=30,
+                                                                            debounce=True,
+                                                                        ),
+                                                                        dbc.Label(
+                                                                            "Growth rate of available ICUs"
+                                                                        ),
+                                                                        dcc.Slider(
+                                                                            min=0,
+                                                                            max=0.1,
+                                                                            step=0.001,
+                                                                            value=0,
+                                                                            marks={
+                                                                                i: "{}".format(
+                                                                                    i.round(
+                                                                                        2
+                                                                                    )
+                                                                                )
+                                                                                for i in np.linspace(
+                                                                                    0,
+                                                                                    0.1,
+                                                                                    5,
+                                                                                )
+                                                                            },
+                                                                            id="input_A10_growth_beds",
+                                                                        ),
                                                                     ],
                                                                     width=3,
                                                                 ),
@@ -427,129 +491,6 @@ app.layout = html.Div(
                                 ),
                             ]
                         ),
-                        # dbc.Row(
-                        #     [
-                        #         dbc.Col(
-                        #             [
-                        #                 dbc.Card(
-                        #                     [
-                        #                         dbc.CardHeader(html.H5("Figure ...")),
-                        #                         dbc.CardBody(
-                        #                             [
-                        #                                 dbc.Row(
-                        #                                     [
-                        #                                         dbc.Col(
-                        #                                             [
-                        #                                                 dbc.Label(
-                        #                                                     "Choose a contact rate"
-                        #                                                 ),
-                        #                                                 dbc.Input(
-                        #                                                     id="input_sir_contact",
-                        #                                                     type="number",
-                        #                                                     placeholder="input contact rate",
-                        #                                                     value=1.75,
-                        #                                                     debounce=True,
-                        #                                                 ),
-                        #                                                 dbc.Label(
-                        #                                                     "Choose a probability of infection"
-                        #                                                 ),
-                        #                                                 dcc.Slider(
-                        #                                                     min=0,
-                        #                                                     max=1,
-                        #                                                     step=0.01,
-                        #                                                     value=0.2,
-                        #                                                     marks={
-                        #                                                         i: "{}".format(
-                        #                                                             i
-                        #                                                         )
-                        #                                                         for i in np.linspace(
-                        #                                                             0,
-                        #                                                             1,
-                        #                                                             5,
-                        #                                                         )
-                        #                                                     },
-                        #                                                     id="input_sir_prob_inf",
-                        #                                                 ),
-                        #                                                 dbc.Label(
-                        #                                                     "Choose the duration of infection"
-                        #                                                 ),
-                        #                                                 dbc.Input(
-                        #                                                     id="input_sir_removed",
-                        #                                                     type="number",
-                        #                                                     placeholder="input duration of infection",
-                        #                                                     value=1
-                        #                                                     / 14,
-                        #                                                     debounce=True,
-                        #                                                 ),
-                        #                                                 dbc.Label(
-                        #                                                     "Choose the test rate"
-                        #                                                 ),
-                        #                                                 dcc.Slider(
-                        #                                                     min=0,
-                        #                                                     max=1,
-                        #                                                     step=0.01,
-                        #                                                     value=0.2,
-                        #                                                     marks={
-                        #                                                         i: "{}".format(
-                        #                                                             i
-                        #                                                         )
-                        #                                                         for i in np.linspace(
-                        #                                                             0,
-                        #                                                             1,
-                        #                                                             5,
-                        #                                                         )
-                        #                                                     },
-                        #                                                     id="input_sir_tests",
-                        #                                                 ),
-                        #                                                 dbc.Label(
-                        #                                                     "Choose number of periods"
-                        #                                                 ),
-                        #                                                 dbc.Input(
-                        #                                                     id="input_sir_t_max",
-                        #                                                     type="number",
-                        #                                                     placeholder="input number of periods",
-                        #                                                     value=365
-                        #                                                     / 2,
-                        #                                                     debounce=True,
-                        #                                                 ),
-                        #                                                 dbc.Label(
-                        #                                                     "Show tests?"
-                        #                                                 ),
-                        #                                                 dbc.RadioItems(
-                        #                                                     options=[
-                        #                                                         {
-                        #                                                             "label": "yes",
-                        #                                                             "value": True,
-                        #                                                         },
-                        #                                                         {
-                        #                                                             "label": "no",
-                        #                                                             "value": False,
-                        #                                                         },
-                        #                                                     ],
-                        #                                                     value=True,
-                        #                                                     id="input_sir_show_tests",
-                        #                                                 ),
-                        #                                             ],
-                        #                                             width=3,
-                        #                                         ),
-                        #                                         dbc.Col(
-                        #                                             [
-                        #                                                 dcc.Graph(
-                        #                                                     id="sir_test_fig"
-                        #                                                 )
-                        #                                             ],
-                        #                                             width="auto",
-                        #                                         ),
-                        #                                     ]
-                        #                                 )
-                        #                             ]
-                        #                         ),
-                        #                     ]
-                        #                 )
-                        #             ]
-                        #         ),
-                        #     ]
-                        # ),
                     ],
                     width=10,
                 ),
@@ -582,12 +523,6 @@ def expfigure_containter(exp_min, exp_max, exp_incr, input_exp_per):
 )
 def A5_figure_container(input_sir_contact, input_sir_inf):
     gamma = 1.0 / 4.0  # time normal case till recovery
-    rho = 1 / 9.0  # time normal case till death
-    alpha = 0.02  # death rate normal case
-    epsilon = 0.05  # critical rate
-    zeta = 1.0 / 5.0  # time critical case till recovery
-    eta = 1.0 / 7.0  # time critical case till death
-    teta = 0.1  # death rate critical case
     return SIRmodel(gamma, input_sir_inf, input_sir_contact, input_sir_contact, 15)
 
 
@@ -596,12 +531,22 @@ def A5_figure_container(input_sir_contact, input_sir_inf):
     [
         dash.dependencies.Input("input_A6_contact", "value"),
         dash.dependencies.Input("input_A6_prob_inf", "value"),
+        dash.dependencies.Input("input_A6_no_tests", "value"),
+        dash.dependencies.Input("input_A6_growth_tests", "value"),
     ],
 )
-def A6_figure_container(input_sir_contact, input_sir_inf):
+def A6_figure_container(
+    input_sir_contact, input_sir_inf, input_A6_no_tests, input_A6_growth_tests
+):
     gamma = 1.0 / 4.0  # time normal case till recovery
     return SIRTestingmModel(
-        gamma, 100, 0, input_sir_inf, input_sir_contact, input_sir_contact, 15
+        gamma,
+        input_A6_no_tests,
+        input_A6_growth_tests,
+        input_sir_inf,
+        input_sir_contact,
+        input_sir_contact,
+        15,
     )
 
 
@@ -610,9 +555,13 @@ def A6_figure_container(input_sir_contact, input_sir_inf):
     [
         dash.dependencies.Input("input_A10_contact", "value"),
         dash.dependencies.Input("input_A10_prob_inf", "value"),
+        dash.dependencies.Input("input_A10_no_beds", "value"),
+        dash.dependencies.Input("input_A10_growth_beds", "value"),
     ],
 )
-def A10_figure_container(input_sir_contact, input_sir_inf):
+def A10_figure_container(
+    input_sir_contact, input_sir_inf, input_A10_no_beds, input_A10_growth_beds
+):
     gamma = 1.0 / 4.0  # time normal case till recovery
     rho = 1 / 9.0  # time normal case till death
     alpha = 0.02  # death rate normal case
@@ -632,8 +581,8 @@ def A10_figure_container(input_sir_contact, input_sir_inf):
         input_sir_contact,
         input_sir_contact,
         0,
-        30,
-        0,
+        input_A10_no_beds,
+        input_A10_growth_beds,
     )
 
 
