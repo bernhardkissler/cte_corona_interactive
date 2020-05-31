@@ -135,15 +135,15 @@ def ECDCfigure():
     fig.update_yaxes(
         nticks=6, title_text="Log of cumulative confirmed deaths",
     )
-    for line in range(len(df_ECDC_pv_group_2)):
-        fig.add_annotation(
-            text=df_ECDC_pv_group_2[line][0].replace("_", " "),
-            x=np.log10(df_ECDC_pv_group_2[line][1]),
-            y=np.log10(df_ECDC_pv_group_2[line][2]),
-            xref="x",
-            yref="y",
-            ax=-40,
-            ay=-40,
-            font=dict(size=8,),
-        )
+    # for line in range(len(df_ECDC_pv_group_2)):
+    #     fig.add_annotation(
+    #         text=df_ECDC_pv_group_2[line][0].replace("_", " "),
+    #         x=np.log10(df_ECDC_pv_group_2[line][1]),
+    #         y=np.log10(df_ECDC_pv_group_2[line][2]),
+    #         xref="x",
+    #         yref="y",
+    #         ax=-40,
+    #         ay=-40,
+    #         font=dict(size=8,),
+    #     )
     return fig

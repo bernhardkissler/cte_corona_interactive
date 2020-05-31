@@ -154,7 +154,7 @@ def SIRTestingmModel(
         cols=1,
         x_title="Days",
         y_title="Relative probability",
-        subplot_titles=("Basic Model", "Random testing", "Cluster testing"),
+        subplot_titles=("Basic Model", "Random testing", "Biased testing"),
     )
     #     Subfig 1
     graph_colors = [colors[0], colors[1], colors[4]]
